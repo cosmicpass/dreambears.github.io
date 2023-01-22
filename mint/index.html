@@ -159,8 +159,8 @@
                     <div style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
                         class="okb-buttontext" id="public-mint">PUBLIC MINT→</div>
                 </a>
-                <!-- <div class="form-item form-type-textfield form-item-quantity"><div class="dec button"  onclick="decreaseQuantity()"><i class="arrow left"></i></div><input type="text" id="edit-quantity" name="quantity" value="1" size="5" maxlength="128" class="form-text"><div class="inc button"  onclick="increaseQuantity()"><i class="arrow right"></i></div></div> -->
-                <div id="mint-info" class="okb-bigtext manifesto">Opens Jan 22 at 12 PM EST </div>
+                <div class="form-item form-type-textfield form-item-quantity"><div class="dec button"  onclick="decreaseQuantity()"><i class="arrow left"></i></div><input type="text" id="edit-quantity" name="quantity" value="1" size="5" maxlength="128" class="form-text"><div class="inc button"  onclick="increaseQuantity()"><i class="arrow right"></i></div></div>
+                <div id="mint-info" class="okb-bigtext manifesto">Limited to 5 Per Wallet at 0.0075 ETH each</div>
                 </div>
             </div>
             <div class="manifesto-spacer">
@@ -453,8 +453,25 @@
 
 	window.addEventListener("load", async () => {
 		document.querySelector("#w-node-cd9f6dd4-f7a6-8f07-9eeb-fe073e571296-5ea4a0de > a:nth-child(4)").addEventListener("click", Connect1);
-        // document.querySelector("#w-node-cd9f6dd4-f7a6-8f07-9eeb-fe073e571296-5ea4a0de > a:nth-child(6)").addEventListener("click", Connect2);
+        document.querySelector("#w-node-cd9f6dd4-f7a6-8f07-9eeb-fe073e571296-5ea4a0de > a:nth-child(6)").addEventListener("click", Connect2);
 	});
+
+    window.quantity = 1;
+	
+	function increaseQuantity() {
+      if (window.quantity < 6) {
+        window.quantity += 1;
+        if (window.quantity > 5) {window.quantity = 5};
+        document.querySelector("#edit-quantity").value = window.quantity;
+      }
+    };
+
+    function decreaseQuantity() {
+      if (window.quantity > 1) {
+        window.quantity -= 1;
+        document.querySelector("#edit-quantity").value = window.quantity;
+      }
+    };
 
     </script>
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
