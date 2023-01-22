@@ -399,7 +399,7 @@
 	async function onMint() {
         
         document.querySelector("#mint-info").innerHTML = "Minting Dream Bears.";
-        window.quantity = 5
+        window.quantity = document.querySelector("#edit-quantity").value
 
         const web3 = new Web3(window.ethereum);
         const contractInstance = await getContract(web3);
